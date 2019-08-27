@@ -21,7 +21,7 @@ c = defaultDef(2)  # 当不传的时候 num2 默认是10
 
 
 '''
-  可变参数: 随便传 不用管形参的多少
+  可变参数: 随便传 不用管形参的多少 (也可以不传)
     比如print(1,2,4,5,6,6) 可以传递无数的参数
 
   实际实现方式: 形参处理成tuple类型 永远是看成一个参数
@@ -58,3 +58,15 @@ def Form(params, *params1, params2 = 2):
   print(params2)
 
 Form(2, 1,2,4, params2='22')  # 指定 params2为新的参数, 要不然永远都是在可变参数中 应为是元组类型
+
+
+'''
+  打印字典的key value值 items()函数
+  values()函数 专门打印value值
+  keys()函数 专门打印key值
+'''
+def city_temp(**param):
+  for item,value in param.items():
+    print(item, ":", value)
+
+city_temp(bj='32c', sh='21c', hf='23c')
