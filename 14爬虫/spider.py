@@ -23,8 +23,8 @@ class Spider():
     url = 'https://www.huya.com/g/lol'
     root_pattern = '<span class="txt">([\s\S]*?)</span>'
     name_pattern = '<i class="nick" ([\s\S]*?)</i>'  # 匹配名字
-    # 私有方法, 获取内容的方法
 
+    # 私有方法, 获取内容的方法
     def __fetch_content(self):
         r = request.urlopen(Spider.url)  # 读取类变量
         htmls = r.read()   # 返回字节码数据 bytes 需要转化为字符串
@@ -47,13 +47,11 @@ class Spider():
         root_html = re.findall(self.root_pattern, htmls)  # 正则获取字符串 获取的是多个
         anchors = []
         for item in root_html:
-          name1 = re.findall(self.name_pattern, item)
-          with open('./所有主播.txt', 'a', encoding='UTF-8') as name:
-            name.write(str(name1) + '\n')
-          anchors.append(name1)
+            name1 = re.findall(self.name_pattern, item)
+            with open('./所有主播.txt', 'a', encoding='UTF-8') as name:
+                name.write(str(name1) + '\n')
+            anchors.append(name1)
         # print(anchors) # 所有主播的名字
-
-        
 
 
 spider = Spider()
